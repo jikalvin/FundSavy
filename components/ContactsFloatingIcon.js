@@ -3,6 +3,9 @@ import { TouchableOpacity } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import GlobalContext from "../context/Context";
 import { useNavigation } from "@react-navigation/native";
+
+import COLORS from "../constants"
+
 export default function ContactsFloatingIcon() {
   const {
     theme: { colors },
@@ -18,7 +21,7 @@ export default function ContactsFloatingIcon() {
         borderRadius: 60,
         width: 60,
         height: 60,
-        backgroundColor: colors.secondary,
+        backgroundColor: COLORS.primary,
         alignItems: "center",
         justifyContent: "center",
       }}

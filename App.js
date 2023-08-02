@@ -16,6 +16,9 @@ import { Ionicons } from "@expo/vector-icons";
 import Contacts from "./screens/Contacts";
 import Chat from './screens/Chat'
 import ChatHeader from './components/ChatHeader'
+
+import COLORS from "./constants"
+
 LogBox.ignoreLogs([
   "Setting a timer",
   "AsyncStorage has been extracted from react-native core and will be removed in a future release.",
@@ -55,7 +58,7 @@ function App() {
         <Stack.Navigator
           screenOptions={{
             headerStyle: {
-              backgroundColor: colors.foreground,
+              backgroundColor: COLORS.primary,
               shadowOpacity: 0,
               elevation: 0,
             },
@@ -71,7 +74,7 @@ function App() {
           )}
           <Stack.Screen
             name="home"
-            options={{ title: "Whatsapp" }}
+            options={{ title: "FundSavy" }}
             component={Home}
           />
           <Stack.Screen
@@ -112,7 +115,7 @@ function Home() {
             backgroundColor: colors.white,
           },
           tabBarStyle: {
-            backgroundColor: colors.foreground,
+            backgroundColor: COLORS.primary,
           },
         };
       }}

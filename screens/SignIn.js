@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { View, Text, Image, ImageBackground } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { StatusBar } from "expo-status-bar";
 import Context from "../context/Context";
 import { signIn, signUp } from "../firebase";
 
@@ -142,6 +143,9 @@ export default function SignIn() {
       </View>
       </View>
       </ImageBackground>
+      <StatusBar
+        backgroundColor={COLORS.primary}
+      />
     </View>
   );
 }
