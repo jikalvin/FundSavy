@@ -123,6 +123,9 @@ function Home() {
     >
       <Tab.Screen name="photo" component={Photo} />
       <Tab.Screen name="chats" component={Chats} />
+      <Tab.Screen name="accounts" component={Chats} />
+      {/* <Tab.Screen name="history" component={Chats} /> */}
+      <Tab.Screen name="schedule" component={Chats} />
     </Tab.Navigator>
   );
 }

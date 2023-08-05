@@ -47,7 +47,6 @@ export default function Chats() {
 
   function onLogout(){
     signOut(auth)
-    navigate.navigate("signIn")
   }
 
   return (
