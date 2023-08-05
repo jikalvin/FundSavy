@@ -3,28 +3,33 @@ import { View, Text, Image, ImageBackground } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { StatusBar } from "expo-status-bar";
 import Context from "../context/Context";
-import { signIn, signUp } from "../firebase";
 
 import { TextInput, Button } from "@react-native-material/core";
 
 
 import COLORS from "../constants"
 
+import { signIn, signUp } from "../firebase";
+
 export default function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [mode, setMode] = useState("signUp");
+  const [loading, setLoading] = useState(false);
+
   const {
     theme: { colors },
   } = useContext(Context);
 
   async function handlePress() {
+    setLoading(!loading)
     if (mode === "signUp") {
       await signUp(email, password);
     }
     if (mode === "signIn") {
       await signIn(email, password);
     }
+    setLoading(!loading)
   }
   return (
     <View
@@ -126,6 +131,7 @@ export default function SignIn() {
             color={COLORS.primary}
             onPress={handlePress}
             style={{height: 40}}
+            disabled = {loading ? true : false}
           />
         </View>
         <TouchableOpacity

@@ -1,11 +1,16 @@
 import { collection, onSnapshot, query, where } from "@firebase/firestore";
 import React, { useContext, useEffect } from "react";
-import { View, Text } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
 import GlobalContext from "../context/Context";
 import { auth, db } from "../firebase";
 import ContactsFloatingIcon from "../components/ContactsFloatingIcon";
 import ListItem from "../components/ListItem";
+import { useNavigation } from "@react-navigation/native";
 import useContacts from "../hooks/useHooks";
+
+// import { auth } from "../firebase";
+import { signOut } from "firebase/auth";
+
 export default function Chats() {
   const { currentUser } = auth;
   const { rooms, setRooms, setUnfilteredRooms } = useContext(GlobalContext);
@@ -14,6 +19,9 @@ export default function Chats() {
     collection(db, "rooms"),
     where("participantsArray", "array-contains", currentUser.email)
   );
+
+  const navigate = useNavigation()
+
   useEffect(() => {
     const unsubscribe = onSnapshot(chatsQuery, (querySnapshot) => {
       const parsedChats = querySnapshot.docs.map((doc) => ({
@@ -37,6 +45,11 @@ export default function Chats() {
     return user;
   }
 
+  function onLogout(){
+    signOut(auth)
+    navigate.navigate("signIn")
+  }
+
   return (
     <View style={{ flex: 1, padding: 5, paddingRight: 10 }}>
       {rooms.map((room) => (
@@ -49,6 +62,11 @@ export default function Chats() {
           user={getUserB(room.userB, contacts)}
         />
       ))}
+      <TouchableOpacity onPress={onLogout}>
+        <Text>
+          Logout
+        </Text>
+      </TouchableOpacity>
       <ContactsFloatingIcon />
     </View>
   );
