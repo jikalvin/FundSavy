@@ -48,25 +48,28 @@ export default function Schedule() {
   return (
     <View style={{ flex: 1, padding: 5, paddingRight: 10 }}>
       <Box
-        style={{
-          flexDirection: "column",
-          flexWrap: "wrap",
-          height: 350,
-        }}
+        style={styles.main}
       >
-        <TouchableOpacity style={[styles.tone, styles.send]}>
-          <FontAwesome 
-            name="money" 
-            size={35} 
-            color="#fff" 
-          />
-          <Text
-            style={styles.text}
-          >Send Money</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={[styles.ttwo, styles.rates]}>
+        <View style={styles.wview}>
+          <TouchableOpacity style={[styles.tone, styles.send]}>
+            <FontAwesome 
+              name="money" 
+              size={35} 
+              color="#fff" 
+            />
+            <Text
+              style={styles.text}
+            >Send Money</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={[styles.tone, styles.rates]}>
+            <FontAwesome name="money" size={35} color="white" />
+            <Text style={styles.text}>Transfer Rates</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.wview}>
+        <TouchableOpacity style={[styles.tone, styles.transfer]}>
           <FontAwesome name="money" size={35} color="white" />
-          <Text style={styles.text}>Transfer Rates</Text>
+          <Text style={styles.text}>Transfer</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={[styles.tone, styles.schedule]}
@@ -74,10 +77,13 @@ export default function Schedule() {
           <FontAwesome name="money" size={35} color="#fff" />
           <Text style={styles.text}>Schedule</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={[styles.ttwo, styles.transfer]}>
-          <FontAwesome name="money" size={35} color="white" />
-          <Text style={styles.text}>Transfer</Text>
-        </TouchableOpacity>
+        </View>
+      </Box>
+
+      <Box>
+        <Text>
+          Transactions
+        </Text>
       </Box>
 
       <ContactsFloatingIcon />
@@ -86,13 +92,16 @@ export default function Schedule() {
 }
 
 const styles = StyleSheet.create({
-  main: {},
+  main: {
+    flexDirection: "row",
+    justifyContent: "space-around"
+  },
   tone: {
     height: 135,
-    width: "40%",
     borderRadius: 15,
     alignItems: "center",
     justifyContent: "center",
+    marginTop: 10,
   },
   send: {
     backgroundColor: "#64DFDF",
@@ -105,17 +114,13 @@ const styles = StyleSheet.create({
   schedule: {
     backgroundColor: "#6930C3"
   },
-  ttwo: {
-    height: 90,
-    width: "40%",
-    borderRadius: 15,
-    alignItems: "center",
-    justifyContent: "center",
-  },
   rates: {
     backgroundColor: "#252525"
   },
   transfer: {
     backgroundColor: "#80FFDB",
+  },
+  wview: {
+    width: "45%",
   },
 })
