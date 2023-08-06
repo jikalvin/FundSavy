@@ -18,6 +18,7 @@ import Chat from './screens/Chat'
 import ChatHeader from './components/ChatHeader'
 
 import COLORS from "./constants"
+import Schedule from "./screens/Schedule";
 
 LogBox.ignoreLogs([
   "Setting a timer",
@@ -125,7 +126,7 @@ function Home() {
       <Tab.Screen name="chats" component={Chats} />
       <Tab.Screen name="accounts" component={Chats} />
       {/* <Tab.Screen name="history" component={Chats} /> */}
-      <Tab.Screen name="schedule" component={Chats} />
+      <Tab.Screen name="schedule" component={Schedule} />
     </Tab.Navigator>
   );
 }
