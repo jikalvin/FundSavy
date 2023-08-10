@@ -2,10 +2,10 @@ import { collection, onSnapshot, query, where } from "@firebase/firestore";
 import { useRoute } from "@react-navigation/native";
 import React, { useContext, useEffect, useState } from "react";
 import { View, Text, FlatList } from "react-native";
-import ListItem from "../components/ListItem";
-import GlobalContext from "../context/Context";
-import { db } from "../firebase";
-import useContacts from "../hooks/useHooks";
+import ListItem from "../../components/ListItem";
+import GlobalContext from "../../context/Context";
+import { db } from "../../firebase";
+import useContacts from "../../hooks/useHooks";
 
 export default function Contacts() {
   const contacts = useContacts();

@@ -11,8 +11,8 @@ import {
   Image,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import { auth, db } from "../firebase";
-import GlobalContext from "../context/Context";
+import { auth, db } from "../../firebase";
+import GlobalContext from "../../context/Context";
 import {
   addDoc,
   collection,
@@ -27,7 +27,7 @@ import {
   GiftedChat,
   InputToolbar,
 } from "react-native-gifted-chat";
-import { pickImage, uploadImage } from "../utils";
+import { pickImage, uploadImage } from "../../utils";
 import ImageView from "react-native-image-viewing";
 
 const randomId = nanoid();
@@ -154,7 +154,7 @@ export default function Chat() {
   return (
     <ImageBackground
       resizeMode="cover"
-      source={require("../assets/chatbg.png")}
+      source={require("../../assets/chatbg.png")}
       style={{ flex: 1 }}
     >
       <GiftedChat

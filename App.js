@@ -6,19 +6,21 @@ import { auth } from "./firebase";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
-import SignIn from "./screens/SignIn";
+import SignIn from "./screens/Auth/SignIn";
 import ContextWrapper from "./context/ContextWrapper";
 import Context from "./context/Context";
-import Profile from "./screens/Profile";
-import Chats from "./screens/Chats";
+import Profile from "./screens/Chat/Profile";
+import Chats from "./screens/Chat/Chats";
 import Photo from "./screens/Photo";
 import { Ionicons } from "@expo/vector-icons";
-import Contacts from "./screens/Contacts";
-import Chat from './screens/Chat'
+import Contacts from "./screens/Chat/Contacts";
+import Chat from './screens/Chat/Chat'
+import PhoneScreen from "./screens/Auth/PhoneScreen";
 import ChatHeader from './components/ChatHeader'
 
 import COLORS from "./constants"
 import Schedule from "./screens/Schedule";
+import EmailPassword from "./screens/Auth/EmailPassword";
 
 LogBox.ignoreLogs([
   "Setting a timer",
@@ -54,6 +56,8 @@ function App() {
       {!currUser ? (
         <Stack.Navigator screenOptions={{ headerShown: false }}>
           <Stack.Screen name="signIn" component={SignIn} />
+          <Stack.Screen name="phoneNumber" component={PhoneScreen} />
+          <Stack.Screen name="emailPasswordr" component={EmailPassword} />
         </Stack.Navigator>
       ) : (
         <Stack.Navigator
@@ -122,11 +126,11 @@ function Home() {
       }}
       initialRouteName="chats"
     >
-      <Tab.Screen name="photo" component={Photo} />
+      <Tab.Screen name="home" component={Schedule} />
+      {/* <Tab.Screen name="photo" component={Photo} /> */}
       <Tab.Screen name="chats" component={Chats} />
       <Tab.Screen name="accounts" component={Chats} />
       {/* <Tab.Screen name="history" component={Chats} /> */}
-      <Tab.Screen name="schedule" component={Schedule} />
     </Tab.Navigator>
   );
 }

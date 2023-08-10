@@ -2,20 +2,23 @@ import React, { useContext, useState } from "react";
 import { View, Text, Image, ImageBackground } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { StatusBar } from "expo-status-bar";
-import Context from "../context/Context";
+import Context from "../../context/Context";
+import { useNavigation } from "@react-navigation/native";
 
 import { TextInput, Button } from "@react-native-material/core";
 
 
-import COLORS from "../constants"
+import COLORS from "../../constants"
 
-import { signIn, signUp } from "../firebase";
+import { signIn, signUp } from "../../firebase";
 
 export default function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [mode, setMode] = useState("signUp");
+  const [mode, setMode] = useState("signIn");
   const [loading, setLoading] = useState(false);
+
+  const navigation = useNavigation()
 
   const {
     theme: { colors },
@@ -23,14 +26,19 @@ export default function SignIn() {
 
   async function handlePress() {
     setLoading(!loading)
-    if (mode === "signUp") {
-      await signUp(email, password);
-    }
+    // if (mode === "signUp") {
+    //   await signUp(email, password);
+    // }
     if (mode === "signIn") {
       await signIn(email, password);
     }
     setLoading(!loading)
   }
+
+  const handlePhone = () => {
+    navigation.navigate("phoneNumber")
+  }
+
   return (
     <View
       style={{
@@ -40,7 +48,7 @@ export default function SignIn() {
         backgroundColor: colors.white,
       }}
     >
-    <ImageBackground source={require("../assets/auth/signin.png")} resizeMode="cover" style={
+    <ImageBackground source={require("../../assets/auth/signin.png")} resizeMode="cover" style={
       {
         flex: 1, 
         justifyContent: "center",
@@ -56,7 +64,7 @@ export default function SignIn() {
           }} 
         >
       <Image
-        source={require("../assets/auth/logo.png")}
+        source={require("../../assets/auth/logo.png")}
         style={{ width: 180, height: 180, tintColor: COLORS.white }}
         resizeMode="cover"
       />
@@ -95,15 +103,19 @@ export default function SignIn() {
         >
           New Here?
         </Text>
-        <Text
-          style={{
-            fontSize: 18,
-            fontWeight: "800",
-            color: COLORS.primary,
-          }}
+        <TouchableOpacity
+          onPress={handlePhone}
         >
-          Create New Account
-        </Text>
+          <Text
+            style={{
+              fontSize: 18,
+              fontWeight: "800",
+              color: COLORS.primary,
+            }}
+          >
+            Create New Account
+          </Text>
+        </TouchableOpacity>
       </View>
       <View style={{ marginTop: 20, width: "100%", padding: 15}}>
         <TextInput
@@ -134,7 +146,7 @@ export default function SignIn() {
             disabled = {loading ? true : false}
           />
         </View>
-        <TouchableOpacity
+        {/* <TouchableOpacity
           style={{ marginTop: 15 }}
           onPress={() =>
             mode === "signUp" ? setMode("signIn") : setMode("signUp")
@@ -145,7 +157,7 @@ export default function SignIn() {
               ? "Already have an account? Sign in"
               : "Don't have an account? Sign Up"}
           </Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
       </View>
       </ImageBackground>

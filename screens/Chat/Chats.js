@@ -1,12 +1,12 @@
 import { collection, onSnapshot, query, where } from "@firebase/firestore";
 import React, { useContext, useEffect } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
-import GlobalContext from "../context/Context";
-import { auth, db } from "../firebase";
-import ContactsFloatingIcon from "../components/ContactsFloatingIcon";
-import ListItem from "../components/ListItem";
+import GlobalContext from "../../context/Context";
+import { auth, db } from "../../firebase";
+import ContactsFloatingIcon from "../../components/ContactsFloatingIcon";
+import ListItem from "../../components/ListItem";
 import { useNavigation } from "@react-navigation/native";
-import useContacts from "../hooks/useHooks";
+import useContacts from "../../hooks/useHooks";
 
 // import { auth } from "../firebase";
 import { signOut } from "firebase/auth";
