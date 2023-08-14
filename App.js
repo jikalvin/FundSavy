@@ -21,6 +21,7 @@ import ChatHeader from './components/ChatHeader'
 import COLORS from "./constants"
 import Schedule from "./screens/Schedule";
 import EmailPassword from "./screens/Auth/EmailPassword";
+import VerifyPhone from "./screens/Auth/VerifyPhone";
 
 LogBox.ignoreLogs([
   "Setting a timer",
@@ -57,6 +58,7 @@ function App() {
         <Stack.Navigator screenOptions={{ headerShown: false }}>
           <Stack.Screen name="signIn" component={SignIn} />
           <Stack.Screen name="phoneNumber" component={PhoneScreen} />
+          <Stack.Screen name="verifyPhone" component={VerifyPhone} />
           <Stack.Screen name="emailPasswordr" component={EmailPassword} />
         </Stack.Navigator>
       ) : (

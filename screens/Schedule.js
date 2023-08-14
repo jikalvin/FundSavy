@@ -1,5 +1,5 @@
 import { collection, onSnapshot, query, where } from "@firebase/firestore";
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { View, TouchableOpacity, StyleSheet, Text } from "react-native";
 import GlobalContext from "../context/Context";
 import { auth, db } from "../firebase";
@@ -7,8 +7,10 @@ import ContactsFloatingIcon from "../components/ContactsFloatingIcon";
 import ListItem from "../components/ListItem";
 import { useNavigation } from "@react-navigation/native";
 import useContacts from "../hooks/useHooks";
-import { Stack, Box } from "@react-native-material/core";
+import { Stack, Box, Button } from "@react-native-material/core";
 import { FontAwesome } from '@expo/vector-icons';
+
+import TextInput from "@react-native-material/core";
 
 
 export default function Schedule() {
@@ -19,6 +21,7 @@ export default function Schedule() {
     collection(db, "rooms"),
     where("participantsArray", "array-contains", currentUser.email)
   );
+  const [number, setNumber] = useState()
 
   const navigation = useNavigation()
 
@@ -85,6 +88,16 @@ export default function Schedule() {
           Transactions
         </Text>
       </Box>
+
+      <Box>
+        <TextInput onChange={(e) => setNumber(e.target.value)} value={number} placeholder="Enter Number" type="number" />
+        <Button variant="contained" />
+      </Box>
+
+      {/* Momo Sandbox Credentials {
+  "userSecret": "0ca8f86f05114973aa805d4c2fd62e04",
+  "userId": "589b5465-0c28-4eb8-80ba-736cf9fdd5f2"
+} */}
 
       <ContactsFloatingIcon />
     </View>
