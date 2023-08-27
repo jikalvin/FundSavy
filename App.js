@@ -34,6 +34,7 @@ const Tab = createMaterialTopTabNavigator();
 
 function App() {
   const [currUser, setCurrUser] = useState(null);
+  const [uemail, setUemail] = useState();
   const [loading, setLoading] = useState(true);
   const {
     theme: { colors },
@@ -44,6 +45,7 @@ function App() {
       setLoading(false);
       if (user) {
         setCurrUser(user);
+        setUemail(user.email)
       }
     });
     return () => unsubscribe();
@@ -55,13 +57,12 @@ function App() {
 
   return (
     <NavigationContainer>
-      {!currUser ? (
+      {!uemail ? (
         <Stack.Navigator screenOptions={{ headerShown: false }}>
           <Stack.Screen name="signIn" component={SignIn} />
           <Stack.Screen name="phoneNumber" component={NPhone} />
-          {/* <Stack.Screen name="phoneNumber" component={PhoneScreen} /> */}
           <Stack.Screen name="verifyPhone" component={VerifyPhone} />
-          <Stack.Screen name="emailPasswordr" component={EmailPassword} />
+          <Stack.Screen name="emailPassword" component={EmailPassword} />
         </Stack.Navigator>
       ) : (
         <Stack.Navigator
@@ -130,11 +131,9 @@ function Home() {
       }}
       initialRouteName="chats"
     >
-      <Tab.Screen name="home" component={Schedule} />
-      {/* <Tab.Screen name="photo" component={Photo} /> */}
+      <Tab.Screen name="home" component={Chats} />
       <Tab.Screen name="chats" component={Chats} />
       <Tab.Screen name="accounts" component={Chats} />
-      {/* <Tab.Screen name="history" component={Chats} /> */}
     </Tab.Navigator>
   );
 }

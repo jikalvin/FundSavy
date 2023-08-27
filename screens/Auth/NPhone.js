@@ -2,6 +2,7 @@ import * as React from "react";
 import { Text, View, TextInput, Button, StyleSheet, TouchableOpacity, Platform } from "react-native";
 import { FirebaseRecaptchaVerifierModal } from "expo-firebase-recaptcha";
 import { signInWithPhoneNumber } from "firebase/auth";
+import { useNavigation } from "@react-navigation/native";
 
 import { firebaseConfig, auth } from "../../firebase";
 
@@ -13,6 +14,8 @@ export default function NPhone() {
   const [message, showMessage] = React.useState((!firebaseConfig || Platform.OS === 'web')
     ? { text: "To get started, provide a valid firebase config in App.js and open this snack on an iOS or Android device."}
     : undefined);
+
+  const navigation = useNavigation()
 
   return (
     <View style={{ padding: 20, marginTop: 50 }}>
@@ -60,10 +63,9 @@ export default function NPhone() {
         title="Confirm Verification Code"
         disabled={!verificationId}
         onPress={() => {verificationId.confirm(verificationCode).then((result) => {
-            // User signed in successfully.
             const user = result.user;
             console.log("confirmed")
-            // ...
+            navigation.navigate("emailPassword")
           }).catch((error) => {
             // User couldn't sign in (bad verification code?)
             // ...

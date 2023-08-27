@@ -146,18 +146,6 @@ export default function SignIn() {
             disabled = {loading ? true : false}
           />
         </View>
-        {/* <TouchableOpacity
-          style={{ marginTop: 15 }}
-          onPress={() =>
-            mode === "signUp" ? setMode("signIn") : setMode("signUp")
-          }
-        >
-          <Text style={{ color: colors.secondaryText }}>
-            {mode === "signUp"
-              ? "Already have an account? Sign in"
-              : "Don't have an account? Sign Up"}
-          </Text>
-        </TouchableOpacity> */}
       </View>
       </View>
       </ImageBackground>
