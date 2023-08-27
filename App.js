@@ -22,6 +22,7 @@ import COLORS from "./constants"
 import Schedule from "./screens/Schedule";
 import EmailPassword from "./screens/Auth/EmailPassword";
 import VerifyPhone from "./screens/Auth/VerifyPhone";
+import NPhone from "./screens/Auth/NPhone";
 
 LogBox.ignoreLogs([
   "Setting a timer",
@@ -57,7 +58,8 @@ function App() {
       {!currUser ? (
         <Stack.Navigator screenOptions={{ headerShown: false }}>
           <Stack.Screen name="signIn" component={SignIn} />
-          <Stack.Screen name="phoneNumber" component={PhoneScreen} />
+          <Stack.Screen name="phoneNumber" component={NPhone} />
+          {/* <Stack.Screen name="phoneNumber" component={PhoneScreen} /> */}
           <Stack.Screen name="verifyPhone" component={VerifyPhone} />
           <Stack.Screen name="emailPasswordr" component={EmailPassword} />
         </Stack.Navigator>
