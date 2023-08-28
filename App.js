@@ -23,6 +23,7 @@ import Schedule from "./screens/Schedule";
 import EmailPassword from "./screens/Auth/EmailPassword";
 import VerifyPhone from "./screens/Auth/VerifyPhone";
 import NPhone from "./screens/Auth/NPhone";
+import CreateGroup from "./screens/Groups/CreateGroup";
 
 LogBox.ignoreLogs([
   "Setting a timer",
@@ -91,6 +92,11 @@ function App() {
             name="contacts"
             options={{ title: "Select Contacts" }}
             component={Contacts}
+          />
+          <Stack.Screen
+            name="createGroup"
+            options={{ title: "New Group" }}
+            component={CreateGroup}
           />
           <Stack.Screen name="chat" component={Chat} options={{headerTitle: (props) => <ChatHeader {...props} />}}/>
         </Stack.Navigator>
