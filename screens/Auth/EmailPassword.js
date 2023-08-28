@@ -15,34 +15,15 @@ export default function App() {
   const [psd, setPsd] = useState("")
   const [cpsd, setCpsd] = useState("")
 
-  const navigation = useNavigation()
-
-  const pickImage = async () => {
-    // No permissions request is necessary for launching the image library
-    let result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.Images,
-      quality: 1,
-      allowsEditing:true
-    });
-    if (!result.cancelled) {
-      setImage(result.uri);
-      console.log(image)
-    }
-  };
-
-
-
   return (
     <View style={styles.container}>
         <Stack spacing={8} style={{ margin: 16, width: "70%" }}>
-            {image && <Image source={{uri:image}} style={{flex:1,width:600}} />}
-            <Button variant='outlined' title="Pick Image" onPress={pickImage}/>
             <TextInput
               label="Email"
               value={email}
               variant='outlined'
               leading={props => <Icon name="account" {...props} />}
-              onChange={setEmail}
+              onChangeText={setEmail}
             />
             <TextInput
               label="Password"
@@ -51,7 +32,7 @@ export default function App() {
               trailing={props => (
                   <IconButton icon={props => <Icon name="eye" {...props} />} {...props} />
               )}
-              onChange={setPsd}
+              onChangeText={setPsd}
             />
             <TextInput
               label="Confirm Password"
@@ -60,7 +41,7 @@ export default function App() {
               trailing={props => (
                   <IconButton icon={props => <Icon name="eye" {...props} />} {...props} />
               )}
-              onChange={setCpsd}
+              onChangeText={setCpsd}
             />
             <Button 
               variant='contained' 

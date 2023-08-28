@@ -39,10 +39,6 @@ export default function NPhone() {
         onPress={async () => {
           try {
             const verificationId = await signInWithPhoneNumber(auth, phoneNumber, recaptchaVerifier.current)
-            // const verificationId = await phoneProvider.verifyPhoneNumber(
-            //   phoneNumber,
-            //   recaptchaVerifier.current
-            // );
             setVerificationId(verificationId);
             showMessage({
               text: "Verification code has been sent to your phone.",
