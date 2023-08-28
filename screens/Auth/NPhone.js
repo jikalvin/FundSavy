@@ -74,7 +74,7 @@ export default function NPhone() {
       />
       {message ? (
         <TouchableOpacity
-          style={[StyleSheet.absoluteFill, { backgroundColor: 0xffffffee, justifyContent: "center" }]}
+          style={[StyleSheet.absoluteFill, { backgroundColor: 0xffffffee, justifyContent: "center", }]}
           onPress={() => showMessage(undefined)}>
           <Text style={{color: message.color || "blue", fontSize: 17, textAlign: "center", margin: 20, }}>
             {message.text}

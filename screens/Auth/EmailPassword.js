@@ -39,25 +39,28 @@ export default function App() {
             <Button variant='outlined' title="Pick Image" onPress={pickImage}/>
             <TextInput
               label="Email"
+              value={email}
               variant='outlined'
               leading={props => <Icon name="account" {...props} />}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={setEmail}
             />
             <TextInput
               label="Password"
               variant="outlined"
+              value={psd}
               trailing={props => (
                   <IconButton icon={props => <Icon name="eye" {...props} />} {...props} />
               )}
-              onChange={(e) => setPsd(e.target.value)}
+              onChange={setPsd}
             />
             <TextInput
               label="Confirm Password"
               variant="outlined"
+              value={cpsd}
               trailing={props => (
                   <IconButton icon={props => <Icon name="eye" {...props} />} {...props} />
               )}
-              onChange={(e) => setCpsd(e.target.value)}
+              onChange={setCpsd}
             />
             <Button 
               variant='contained' 
@@ -65,8 +68,9 @@ export default function App() {
               onPress={async () => {
                 if(email === "" || psd === "" || cpsd === "") return
                 if(psd != cpsd) {console.log("Passwords don't match")}else{
+                  console.log(email, psd)
                   await signUp(email, psd)
-                  navigation.navigate("signIn")
+                  console.log("Completed")
                 }
               }}
             />
