@@ -19,10 +19,6 @@ export default function Chats() {
     collection(db, "njangiGroups"),
     where("members", "array-contains", currentUser.uid)
   );
-  // const chatsQuery = query(
-  //   collection(db, "rooms"),
-  //   where("participantsArray", "array-contains", currentUser.email)
-  // );
 
   const navigation = useNavigation()
 

@@ -53,7 +53,10 @@ export default function CreateGroup() {
     }
     const groupData = {
       name,
-      description
+      description,
+      members: [user.uid],
+      lastMessage: {text:description, createdAt: Date.now()},
+      createdAt: Date.now()
     };
     if (photoURL) {
       groupData.photoURL = photoURL;

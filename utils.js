@@ -3,6 +3,13 @@ import "react-native-get-random-values";
 import { nanoid }from 'nanoid'
 import {ref, uploadBytes, getDownloadURL} from 'firebase/storage'
 import { storage } from "./firebase"
+import { Ionicons } from '@expo/vector-icons';
+import { MaterialIcons } from '@expo/vector-icons';
+import { AntDesign } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import React from "react";
+
+
 export async function pickImage() {
   let result = ImagePicker.launchCameraAsync();
   return result;
@@ -71,3 +78,86 @@ export const theme = {
     iconGray: palette.iconGray,
   },
 };
+
+export const NotificationsList = [
+  {
+    id: 1,
+    Title: "Notifications",
+    icon: <Ionicons name="notifications-outline" size={24} color="white" />
+  },
+  {
+    id: 2,
+    Title: "Calls",
+    icon: <Ionicons name="call-outline" size={24} color="white" />
+  },
+];
+
+export const NjangiGroupsList = [
+  {
+    id: 1,
+    Title: "All Groups",
+    icon: <MaterialIcons name="groups" size={24} color="white" />,
+    scrn: "chats"
+  },
+  {
+    id: 2,
+    Title: "Create Group",
+    icon: <AntDesign name="addusergroup" size={24} color="white" />,
+    scrn: "createGroup"
+  },
+  {
+    id: 3,
+    Title: "Join Njangi Group",
+    icon: <Ionicons name="enter-outline" size={24} color="white" />
+  },
+  {
+    id: 4,
+    Title: "Njangi Group Invites",
+    icon: <Ionicons name="md-mail-unread-outline" size={24} color="white" />
+  },
+];
+
+export const FundGroupsList = [
+  {
+    id: 1,
+    Title: "Create Fund Group",
+    icon:<AntDesign name="addusergroup" size={24} color="white" />
+  },
+  {
+    id: 2,
+    Title: "Join Fund Group",
+    icon: <Ionicons name="enter-outline" size={24} color="white" />
+  },
+  {
+    id: 3,
+    Title: "Fund Group Invites",
+    icon: <Ionicons name="md-mail-unread-outline" size={24} color="white" />
+  },
+];
+export const TransactionsList = [
+  {
+    id: 1,
+    Title: "Transfer Money",
+    icon: <MaterialCommunityIcons name="bank-transfer" size={24} color="white" />
+  },
+  {
+    id: 2,
+    Title: "Schedule Transfer",
+    icon: <MaterialIcons name="schedule-send" size={24} color="white" />
+  },
+  {
+    id: 3,
+    Title: "Buy Airtime",
+    icon: <MaterialIcons name="sim-card" size={24} color="white" />
+  },
+  {
+    id: 4,
+    Title: "All Schedules",
+    icon: <MaterialIcons name="schedule" size={24} color="white" />
+  },
+  {
+    id: 5,
+    Title: "Transfer History",
+    icon: <MaterialIcons name="history" size={24} color="white" />
+  },
+];

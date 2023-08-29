@@ -24,6 +24,7 @@ import EmailPassword from "./screens/Auth/EmailPassword";
 import VerifyPhone from "./screens/Auth/VerifyPhone";
 import NPhone from "./screens/Auth/NPhone";
 import CreateGroup from "./screens/Groups/CreateGroup";
+import HomeA from "./screens/HomeA";
 
 LogBox.ignoreLogs([
   "Setting a timer",
@@ -137,7 +138,7 @@ function Home() {
       }}
       initialRouteName="chats"
     >
-      <Tab.Screen name="home" component={Chats} />
+      <Tab.Screen name="home" component={HomeA} />
       <Tab.Screen name="chats" component={Chats} />
       <Tab.Screen name="accounts" component={Chats} />
     </Tab.Navigator>
