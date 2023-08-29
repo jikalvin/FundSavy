@@ -69,11 +69,11 @@ export default function Chats() {
         //   user={getUserB(room.userB, contacts)}
         // />
       ))}
-      {/* <TouchableOpacity onPress={onLogout}>
+      <TouchableOpacity onPress={onLogout}>
         <Text>
           Logout
         </Text>
-      </TouchableOpacity> */}
+      </TouchableOpacity>
       <ContactsFloatingIcon />
     </View>
   );

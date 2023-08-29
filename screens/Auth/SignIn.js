@@ -110,7 +110,7 @@ export default function SignIn() {
             style={{
               fontSize: 18,
               fontWeight: "800",
-              color: COLORS.primary,
+              color: COLORS.secondary,
             }}
           >
             Create New Account
