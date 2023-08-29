@@ -17,6 +17,7 @@ import Contacts from "./screens/Chat/Contacts";
 import Chat from './screens/Chat/Chat'
 import PhoneScreen from "./screens/Auth/PhoneScreen";
 import ChatHeader from './components/ChatHeader'
+import { ActivityIndicator, Box } from "@react-native-material/core";
 
 import COLORS from "./constants"
 import Schedule from "./screens/Schedule";
@@ -25,6 +26,8 @@ import VerifyPhone from "./screens/Auth/VerifyPhone";
 import NPhone from "./screens/Auth/NPhone";
 import CreateGroup from "./screens/Groups/CreateGroup";
 import HomeA from "./screens/HomeA";
+import NotificationsScreen from "./screens/Notifications";
+import JoinGroupScreen from "./screens/Groups/JoinScreen";
 
 LogBox.ignoreLogs([
   "Setting a timer",
@@ -54,7 +57,9 @@ function App() {
   }, []);
 
   if (loading) {
-    return <Text>Loading...</Text>;
+    return <Box style={{flex: 1, alignItems: "center", justifyContent:"center"}}>
+      <ActivityIndicator />
+    </Box>;
   }
 
   return (
@@ -88,6 +93,16 @@ function App() {
             name="home"
             options={{ title: "FundSavy" }}
             component={Home}
+          />
+          <Stack.Screen
+            name="notifications"
+            options={{ title: "Notifications" }}
+            component={NotificationsScreen}
+          />
+          <Stack.Screen
+            name="joinGroup"
+            options={{ title: "Join Group" }}
+            component={JoinGroupScreen}
           />
           <Stack.Screen
             name="contacts"

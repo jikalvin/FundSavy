@@ -11,7 +11,7 @@ import {
 import Constants from "expo-constants";
 import GlobalContext from "../../context/Context";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { pickImage, askForPermission, uploadImage } from "../../utils";
+import { pickImage, askForPermission, uploadImage, generateJoinLink } from "../../utils";
 import { auth, db } from "../../firebase";
 import { updateProfile } from "@firebase/auth";
 import { doc, setDoc } from "@firebase/firestore";
@@ -56,7 +56,8 @@ export default function CreateGroup() {
       description,
       members: [user.uid],
       lastMessage: {text:description, createdAt: Date.now()},
-      createdAt: Date.now()
+      createdAt: Date.now(),
+      joinLink: generateJoinLink(id)
     };
     if (photoURL) {
       groupData.photoURL = photoURL;

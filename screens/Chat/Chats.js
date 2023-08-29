@@ -58,7 +58,7 @@ export default function Chats() {
           key={room.uid}
           room={room}
           time={room.lastMessage.createdAt}
-          user={room.name}
+          user={room}
         />
         // <ListItem
         //   type="chat"

@@ -49,6 +49,11 @@ export async function uploadImage(uri, path, fName) {
   
     return { url, fileName };
   }
+
+  export const generateJoinLink = (groupId) => {
+    const joinLink = `http://fundsavy.app/${groupId}`;
+    return joinLink;
+  };
   
 
 
@@ -79,16 +84,24 @@ export const theme = {
   },
 };
 
+export function removeHttp(link) {
+  const url = link.substring(link.lastIndexOf('/') + 1);
+  return url
+}
+
+
 export const NotificationsList = [
   {
     id: 1,
     Title: "Notifications",
-    icon: <Ionicons name="notifications-outline" size={24} color="white" />
+    icon: <Ionicons name="notifications-outline" size={24} color="white" />,
+    scrn: "notifications"
   },
   {
     id: 2,
     Title: "Calls",
-    icon: <Ionicons name="call-outline" size={24} color="white" />
+    icon: <Ionicons name="call-outline" size={24} color="white" />,
+    scrn: "contacts"
   },
 ];
 
@@ -108,7 +121,8 @@ export const NjangiGroupsList = [
   {
     id: 3,
     Title: "Join Njangi Group",
-    icon: <Ionicons name="enter-outline" size={24} color="white" />
+    icon: <Ionicons name="enter-outline" size={24} color="white" />,
+    scrn: "joinGroup"
   },
   {
     id: 4,
