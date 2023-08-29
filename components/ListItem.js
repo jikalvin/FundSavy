@@ -11,12 +11,13 @@ export default function ListItem({
   style,
   time,
   room,
-  image,
+  // image,
 }) {
   const navigation = useNavigation();
   const {
     theme: { colors },
   } = useContext(GlobalContext);
+  const image = room.image;
   return (
     <TouchableOpacity
       style={{ height: 80, ...style }}
@@ -26,7 +27,7 @@ export default function ListItem({
         <Col
           style={{ width: 80, alignItems: "center", justifyContent: "center" }}
         >
-          <Avatar user={user} size={type === "contacts" ? 40 : 65} />
+          <Avatar user={room.photoURL} size={type === "contacts" ? 40 : 65} />
         </Col>
         <Col style={{ marginLeft: 10 }}>
           <Row style={{ alignItems: "center" }}>
@@ -34,7 +35,7 @@ export default function ListItem({
               <Text
                 style={{ fontWeight: "bold", fontSize: 16, color: colors.text }}
               >
-                {user.contactName || user.displayName}
+                {room.name}
               </Text>
             </Col>
             {time && (

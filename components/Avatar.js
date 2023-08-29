@@ -10,8 +10,8 @@ export default function Avatar({ size, user }) {
         borderRadius: size,
       }}
       source={
-        user.photoURL
-          ? { uri: user.photoURL }
+        user
+          ? { uri: user }
           : require("../assets/icon-square.png")
       }
       resizeMode="cover"

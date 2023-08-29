@@ -49,6 +49,7 @@ export default function CreateGroup() {
         "profilePicture"
       );
       photoURL = url;
+      console.log(photoURL)
     }
     const groupData = {
       name,
