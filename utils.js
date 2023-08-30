@@ -85,6 +85,7 @@ export const theme = {
 };
 
 export function removeHttp(link) {
+  if(link === '') return '';
   const url = link.substring(link.lastIndexOf('/') + 1);
   return url
 }
