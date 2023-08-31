@@ -28,6 +28,7 @@ import CreateGroup from "./screens/Groups/CreateGroup";
 import HomeA from "./screens/HomeA";
 import NotificationsScreen from "./screens/Notifications";
 import JoinGroupScreen from "./screens/Groups/JoinScreen";
+import DepositScreen from "./screens/Deposit";
 
 LogBox.ignoreLogs([
   "Setting a timer",
@@ -113,6 +114,11 @@ function App() {
             name="createGroup"
             options={{ title: "New Group" }}
             component={CreateGroup}
+          />
+          <Stack.Screen
+            name="depositScreen"
+            options={{ title: "Deposit Money" }}
+            component={DepositScreen}
           />
           <Stack.Screen name="chat" component={Chat} options={{headerTitle: (props) => <ChatHeader {...props} />}}/>
         </Stack.Navigator>

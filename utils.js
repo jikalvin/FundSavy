@@ -151,14 +151,20 @@ export const FundGroupsList = [
 ];
 export const TransactionsList = [
   {
-    id: 1,
-    Title: "Transfer Money",
-    icon: <MaterialCommunityIcons name="bank-transfer" size={24} color="white" />
+    id: 6,
+    Title: "Deposit",
+    icon: <MaterialCommunityIcons name="bank-transfer" size={24} color="white" />,
+    scrn: "depositScreen"
   },
   {
     id: 2,
     Title: "Schedule Transfer",
     icon: <MaterialIcons name="schedule-send" size={24} color="white" />
+  },
+  {
+    id: 1,
+    Title: "Transfer Money",
+    icon: <MaterialCommunityIcons name="bank-transfer" size={24} color="white" />
   },
   {
     id: 3,
