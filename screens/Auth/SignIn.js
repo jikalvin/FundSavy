@@ -16,6 +16,7 @@ export default function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [mode, setMode] = useState("signIn");
+  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
   const navigation = useNavigation()
@@ -24,13 +25,18 @@ export default function SignIn() {
     theme: { colors },
   } = useContext(Context);
 
-  async function handlePress() {
+  function handlePress() {
     setLoading(!loading)
-    // if (mode === "signUp") {
-    //   await signUp(email, password);
-    // }
     if (mode === "signIn") {
-      await signIn(email, password);
+      signIn(email, password)
+      .then(response => {
+        console.log(response)
+        setLoading(!loading)
+      })
+      .catch(error => {
+        setError("Wrong email or password"); 
+        setLoading(false);
+      });
     }
     setLoading(!loading)
   }
@@ -117,6 +123,7 @@ export default function SignIn() {
           </Text>
         </TouchableOpacity>
       </View>
+      {error != "" && <Text style={{color: "red"}}>{error}</Text>}
       <View style={{ marginTop: 20, width: "100%", padding: 15}}>
         <TextInput
           placeholder="Email"
